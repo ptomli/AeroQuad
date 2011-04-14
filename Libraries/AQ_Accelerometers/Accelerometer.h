@@ -22,17 +22,15 @@
 #define _AEROQUAD_ACCELEROMETER_H_
 
 #include <WProgram.h>
-// #include <Axis.h>
-// #include <AQMath.h>
 
 class Accelerometer {
 protected:
-  float accelOneG;
-  float accelScaleFactor;
-  float accelVector[3];
-  float smoothFactor;
-  int   accelZero[3];
-  int   accelRaw[3];
+  // float accelOneG;
+  // float accelScaleFactor;
+  // float accelVector[3];
+  // float smoothFactor;
+  // int   accelZero[3];
+  // int   accelRaw[3];
 
 public:
   Accelerometer();
@@ -41,13 +39,13 @@ public:
   virtual void measure(void) {};
   virtual void calibrate(void) {};
   
-  const int getData(byte);
-  void setZero(byte, int);
-  const int getZero(byte);
-  void setOneG(float);
-  const float getOneG(void);
-  void setSmoothFactor(float);
-  int findMedian(int *, int);
+  // const int getData(byte);
+  // void setZero(byte, int);
+  // const int getZero(byte);
+  // void setOneG(float);
+  // const float getOneG(void);
+  // void setSmoothFactor(float);
+  // int findMedian(int *, int);
 };
 
 #endif

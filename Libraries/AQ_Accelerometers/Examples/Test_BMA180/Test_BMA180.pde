@@ -47,11 +47,11 @@ void loop(void)
     accel.measure();
 
     Serial.print("X: ");
-    Serial.print(accel.getData(XAXIS));
+    // Serial.print(accel.getData(XAXIS));
     Serial.print(" Y: ");
-    Serial.print(accel.getData(YAXIS));
+    // Serial.print(accel.getData(YAXIS));
     Serial.print(" Z: ");
-    Serial.print(accel.getData(ZAXIS));
+    // Serial.print(accel.getData(ZAXIS));
     Serial.println();
   }
 }

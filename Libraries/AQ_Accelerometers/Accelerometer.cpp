@@ -22,58 +22,58 @@
 #include <Axis.h>
 
 Accelerometer::Accelerometer() {
-  for (byte axis = XAXIS; axis < LASTAXIS; axis++) {
-    accelVector[axis] = 0;
-    accelRaw[axis] = 0;
-    accelZero[axis] = 0;
-  }
-  accelOneG = 0.0;
-  accelScaleFactor = 1.0;
-  smoothFactor = 1.0;
+  // for (byte axis = XAXIS; axis < LASTAXIS; axis++) {
+  //   accelVector[axis] = 0;
+  //   accelRaw[axis] = 0;
+  //   accelZero[axis] = 0;
+  // }
+  // accelOneG = 0.0;
+  // accelScaleFactor = 1.0;
+  // smoothFactor = 1.0;
 }
 
-const int Accelerometer::getData(byte axis)  {
-  return accelVector[axis];
-}
-
-void Accelerometer::setZero(byte axis, int value)  {
-  accelZero[axis] = value;
-}
-
-const int Accelerometer::getZero(byte axis)  {
-  return accelZero[axis];
-}
-
-void Accelerometer::setOneG(float value)  {
-  accelOneG = value;
-}
-
-const float Accelerometer::getOneG(void) {
-  return accelOneG;
-}
-
-void Accelerometer::setSmoothFactor(float value)  {
-  smoothFactor = value;
-}
- 
-//Thanks ala42! Post: http://aeroquad.com/showthread.php?1369-The-big-enhancement-addition-to-2.0-code/page5
-int Accelerometer::findMedian(int *data, int arraySize) { 
-  int temp;
-  boolean done = 0;
-  byte i;
-  
-   // Sorts numbers from lowest to highest
-  while (done != 1) {        
-    done = 1;
-    for (i=0; i<(arraySize-1); i++) {
-      if (data[i] > data[i+1]) {     // numbers are out of order - swap
-        temp = data[i+1];
-        data[i+1] = data[i];
-        data[i] = temp;
-        done = 0;
-      }
-    }
-  }
-  
-  return data[arraySize/2]; // return the median value
-}
+// const int Accelerometer::getData(byte axis)  {
+//   return accelVector[axis];
+// }
+// 
+// void Accelerometer::setZero(byte axis, int value)  {
+//   accelZero[axis] = value;
+// }
+// 
+// const int Accelerometer::getZero(byte axis)  {
+//   return accelZero[axis];
+// }
+// 
+// void Accelerometer::setOneG(float value)  {
+//   accelOneG = value;
+// }
+// 
+// const float Accelerometer::getOneG(void) {
+//   return accelOneG;
+// }
+// 
+// void Accelerometer::setSmoothFactor(float value)  {
+//   smoothFactor = value;
+// }
+//  
+// //Thanks ala42! Post: http://aeroquad.com/showthread.php?1369-The-big-enhancement-addition-to-2.0-code/page5
+// int Accelerometer::findMedian(int *data, int arraySize) { 
+//   int temp;
+//   boolean done = 0;
+//   byte i;
+//   
+//    // Sorts numbers from lowest to highest
+//   while (done != 1) {        
+//     done = 1;
+//     for (i=0; i<(arraySize-1); i++) {
+//       if (data[i] > data[i+1]) {     // numbers are out of order - swap
+//         temp = data[i+1];
+//         data[i+1] = data[i];
+//         data[i] = temp;
+//         done = 0;
+//       }
+//     }
+//   }
+//   
+//   return data[arraySize/2]; // return the median value
+// }
