@@ -18,12 +18,12 @@
   along with this program. If not, see <http://www.gnu.org/licenses/>. 
 */
 
-#ifndef ACCELEROMETER_NULL_H
-#define ACCELEROMETER_NULL_H
+#ifndef _AEROQUAD_ACCELEROMETER_NULL_H_
+#define _AEROQUAD_ACCELEROMETER_NULL_H_
 
 #include "Accelerometer.h"
 
-class Accelerometer_Null : public Accel {
+class Accelerometer_Null : public Accelerometer {
 public:
   Accelerometer_Null();
   void initialize(void);

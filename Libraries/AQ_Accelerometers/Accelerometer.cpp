@@ -18,10 +18,11 @@
   along with this program. If not, see <http://www.gnu.org/licenses/>. 
 */
 
-#include "Accelerometer.h"
+#include <Accelerometer.h>
+#include <Axis.h>
 
-Accel::Accel() {
- for (byte axis = XAXIS; axis < LASTAXIS; axis++) {
+Accelerometer::Accelerometer() {
+  for (byte axis = XAXIS; axis < LASTAXIS; axis++) {
     accelVector[axis] = 0;
     accelRaw[axis] = 0;
     accelZero[axis] = 0;
@@ -31,32 +32,32 @@ Accel::Accel() {
   smoothFactor = 1.0;
 }
 
-const int Accel::getData(byte axis)  {
+const int Accelerometer::getData(byte axis)  {
   return accelVector[axis];
 }
 
-void Accel::setZero(byte axis, int value)  {
+void Accelerometer::setZero(byte axis, int value)  {
   accelZero[axis] = value;
 }
 
-const int Accel::getZero(byte axis)  {
+const int Accelerometer::getZero(byte axis)  {
   return accelZero[axis];
 }
 
-void Accel::setOneG(float value)  {
+void Accelerometer::setOneG(float value)  {
   accelOneG = value;
 }
 
-const float Accel::getOneG(void) {
+const float Accelerometer::getOneG(void) {
   return accelOneG;
 }
 
-void Accel::setSmoothFactor(float value)  {
+void Accelerometer::setSmoothFactor(float value)  {
   smoothFactor = value;
 }
  
 //Thanks ala42! Post: http://aeroquad.com/showthread.php?1369-The-big-enhancement-addition-to-2.0-code/page5
-int Accel::findMedian(int *data, int arraySize) { 
+int Accelerometer::findMedian(int *data, int arraySize) { 
   int temp;
   boolean done = 0;
   byte i;

@@ -18,36 +18,40 @@
   along with this program. If not, see <http://www.gnu.org/licenses/>. 
 */
 
-#ifndef _AEROQUAD_ACCELEROMETER_H_
-#define _AEROQUAD_ACCELEROMETER_H_
+#include <Accelerometer_BMA180.h>
 
-#include <WProgram.h>
-// #include <Axis.h>
-// #include <AQMath.h>
+#include <Wire.h>
 
-class Accelerometer {
-protected:
-  float accelOneG;
-  float accelScaleFactor;
-  float accelVector[3];
-  float smoothFactor;
-  int   accelZero[3];
-  int   accelRaw[3];
+#include <AQMath.h>
+#include <Axis.h>
+#include <Device_I2C.h>
 
-public:
-  Accelerometer();
+unsigned long timer;
 
-  virtual void initialize(void) {};
-  virtual void measure(void) {};
-  virtual void calibrate(void) {};
-  
-  const int getData(byte);
-  void setZero(byte, int);
-  const int getZero(byte);
-  void setOneG(float);
-  const float getOneG(void);
-  void setSmoothFactor(float);
-  int findMedian(int *, int);
-};
+Accelerometer_BMA180 accel;
 
-#endif
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println("Accelerometer library test (BMA180)");
+
+  accel.initialize();
+  accel.calibrate();
+  timer = millis();
+}
+
+void loop(void) 
+{
+  if((millis() - timer) > 10) { // 100Hz
+    timer = millis();
+    accel.measure();
+
+    Serial.print("X: ");
+    Serial.print(accel.getData(XAXIS));
+    Serial.print(" Y: ");
+    Serial.print(accel.getData(YAXIS));
+    Serial.print(" Z: ");
+    Serial.print(accel.getData(ZAXIS));
+    Serial.println();
+  }
+}
